@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>#HelpIndiaBreathe</title>
+	<link rel="shotcut icon" type="image/png" href="{{ url_for('static', filename='verified-user.svg') }}" />
+	<link rel="stylesheet"  type="text/css" href="{{ url_for('static', filename='bootstrap.min.css') }}" />
+	<link rel="stylesheet"  type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body style="overflow-x: hidden;">	
+	<div class="back-pane" id="backPane">
+		<img src="{{ url_for('static', filename='back-image.jpg') }}" alt="" width="100%" class="back-image">
+		<div class="front-pane">
+			<div align="right" style="font-size: 14px; font-weight:bold; font-family: sans-serif; color: rgba(255, 255, 255, 0.4); padding-right:10px; padding-top:5px;">8382681019811097116104</div>
+			<div class="front-text" id="frontText" onmouseover="backTransition();">#HelpIndiaBreathe</div>
+		</div>
+	</div>
+	<div id="info-pane" style="position: absolute; display:none;">
+		<div class="head-text2" id="headText2">Live Updates</div>
+		<div style="display: flex; justify-content: center; width: 100vw;">
+			<div class="live-cases"><span class="title">{{_active_}}</span><br>Live Cases</div>
+			<div class="live-cases"><span class="title">{{_cured_}}</span><br>Discharged</div>
+			<div class="live-cases"><span class="title">{{_deaths_}}</span><br>Death Count</div>
+			<div class="live-cases"><span class="title">{{_vaccinated_}}</span><br>Vaccinated</div>
+		</div>
+		<div class="timing">Updated <b>{{_updated_}}</b></div>
+
+		<div class="head-text3" id="headText3">Recent Government Notice</div>
+
+		<div style="display: flex; justify-content: center; width: 100vw; margin-top: 0px;">
+			<a class="live-updates" href="{{_notice_[0][2]}}"><span class="title">{{_notice_[0][0]}}</span><br>{{_notice_[0][1]}}</a>
+			<a class="live-updates" href="{{_notice_[1][2]}}"><span class="title">{{_notice_[1][0]}}</span><br>{{_notice_[1][1]}}</a>
+			<a class="live-updates" href="{{_notice_[2][2]}}"><span class="title">{{_notice_[2][0]}}</span><br>{{_notice_[2][1]}}</a>
+			<a class="live-updates" href="{{_notice_[3][2]}}"><span class="title">{{_notice_[3][0]}}</span><br>{{_notice_[3][1]}}</a>
+		</div>
+
+		<div class="donate-btn-div">
+			<a class="donate-btn" id="btn" href="https://rzp.io/l/xhHMwq6g" onclick="btnClicked();" onmouseup="btnUnclicked();" 
+			   style="text-decoration: none;">
+				Donate Now
+			</a>
+		</div>
+	</div>
+</body>
+<script>
+	function backTransition(){
+		document.querySelector("#backPane").style.transform="translateY(-1000px)";
+		setTimeout(()=>{
+			document.querySelector("#info-pane").style.display="block";
+			document.querySelector("#info-pane").style.opacity="0";
+			document.querySelector("#info-pane").style.transition="1s";
+		}, 200);
+		setTimeout(()=>{
+			document.querySelector("#info-pane").style.opacity="1";
+		}, 400);
+	}
+	function btnClicked(){
+		document.querySelector("#btn").style.backgroundColor="#317cf5";
+	}
+	function btnUnclicked(){
+		document.querySelector("#btn").style.backgroundColor="#528FF0";
+	}
+</script>
+</html>
+
